@@ -14,6 +14,7 @@ function App() {
   const [items, setItems] = useState(initialItems);
   const [newItemText, setNewItemText] = useState('');
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [isInfoVisible, setIsInfoVisible] = useState(true);
 
   const handleInputChange = (event) => {
     setNewItemText(event.target.value);
@@ -39,13 +40,16 @@ function App() {
 
   const handleItemClick = (itemId) => {
     setSelectedItemId(itemId);
+    setIsInfoVisible(true);
   };
 
   const getItemInfo = (itemId) => {
     const item = items.find((item) => item.id === itemId);
     return item ? (item.info ? item.info : 'Default information') : '';
   };
-
+  const handleHideInfo = () => {
+    setIsInfoVisible(false);
+  };
   
 
   return (
@@ -70,10 +74,10 @@ function App() {
         </ul>
       </div>
       <div className="item-info">
-        {selectedItemId !== null && (
+        {selectedItemId !== null && isInfoVisible && (
           <div>
-            <h2>Information</h2>
             <p>{getItemInfo(selectedItemId)}</p>
+            <button onClick={handleHideInfo}>Hide</button>
           </div>
         )}
       </div>
