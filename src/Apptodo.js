@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
 const initialItems = [
   { id: 1, text: 'Item 1', info: 'Information about Item 1' },
   { id: 2, text: 'Item 2' },
@@ -13,8 +12,7 @@ const initialItems = [
 function App() {
   const [items, setItems] = useState(initialItems);
   const [newItemText, setNewItemText] = useState('');
-  const [selectedItemId, setSelectedItemId] = useState(null);
-  const [isInfoVisible, setIsInfoVisible] = useState(true);
+  const [clickedItems, setClickedItems] = useState([]);
 
   const handleInputChange = (event) => {
     setNewItemText(event.target.value);
@@ -39,52 +37,51 @@ function App() {
   };
 
   const handleItemClick = (itemId) => {
-    setSelectedItemId(itemId);
-    setIsInfoVisible(true);
+    const clickedItem = items.find(item => item.id === itemId);
+    if (clickedItem && !clickedItems.includes(clickedItem)) {
+      setClickedItems([...clickedItems, clickedItem]);
+    }
   };
 
-  const getItemInfo = (itemId) => {
-    const item = items.find((item) => item.id === itemId);
-    return item ? (item.info ? item.info : 'Default information') : '';
+  const getItemInfo = (item) => {
+    return item.info ? item.info : 'Default information';
   };
-  const handleHideInfo = () => {
-    setIsInfoVisible(false);
+
+  const handleHideInfo = (itemId) => {
+    setClickedItems(clickedItems.filter(item => item.id !== itemId));
   };
-  
 
   return (
     <div className="App">
       <h1>List</h1>
       <header className="App-header">
-      <div className="add-item">
-        <input
-          type="text"
-          value={newItemText}
-          onKeyPress={handleKeyPress}
-          onChange={handleInputChange}
-          placeholder="Enter new item"
-        />
-        <button onClick={handleAdd}>Add Item</button>
-        <ul>
-          {items.map((item) => (
-            <li key={item.id} onClick={() => handleItemClick(item.id)}>
-              {item.text}
-            </li>
+        <div className="add-item">
+          <input
+            type="text"
+            value={newItemText}
+            onKeyPress={handleKeyPress}
+            onChange={handleInputChange}
+            placeholder="Enter new item"
+          />
+          <button onClick={handleAdd}>Add Item</button>
+          <ul>
+            {items.map((item) => (
+              <li key={item.id} onClick={() => handleItemClick(item.id)}>
+                {item.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          {clickedItems.map((item) => (
+            <div key={item.id} className="item-info">
+              <p>{getItemInfo(item)}</p>
+              <button onClick={() => handleHideInfo(item.id)}>Hide</button>
+            </div>
           ))}
-        </ul>
-      </div>
-      <div className="item-info">
-        {selectedItemId !== null && isInfoVisible && (
-          <div>
-            <p>{getItemInfo(selectedItemId)}</p>
-            <button onClick={handleHideInfo}>Hide</button>
-          </div>
-        )}
-      </div>
+        </div>
       </header>
     </div>
-
-
   );
 }
 

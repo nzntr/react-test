@@ -33,12 +33,16 @@ p {
 li.striked-through {
   text-decoration: line-through;
 }
-
+.item-info div {
+  margin-bottom: 10px; 
+}
 .item-info {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 10px auto;
   text-align: center;
   padding: 15px;
   border: 1px solid #3b2e75;
+  border-radius: 10px; 
   background-color: #e5cfff;
+  box-sizing: border-box; 
 }
