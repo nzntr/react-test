@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
 import './App.css';
+import Home from './Home';
+import Profile from './Profile';
+import About from './About';
 
 function App() {
-  const [text, setText] = useState('');
-  const [greeting, setGreeting] = useState('');
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setGreeting(`Hello ${text}`);
-  };
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  }
+
+
 
   return (
     <div className="App">
+      <h1>Menu</h1>
       <header className="App-header">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={text}
-            onChange={handleChange}
-            placeholder="Enter your name"
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {greeting && <p>{greeting}</p>}
+        <ul className="menu-list">
+          <li onClick={() => handleItemClick('Home')}>Home</li>
+          <li onClick={() => handleItemClick('Profile')}>Profile</li>
+          <li onClick={() => handleItemClick('About')}>About</li>
+        </ul>
+        <div className="content-area">
+          {selectedItem === 'Home' && <Home />}
+          {selectedItem === 'Profile' && <Profile />}
+          {selectedItem === 'About' && <About />}
+        </div>
       </header>
     </div>
   );
