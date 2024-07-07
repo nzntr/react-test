@@ -7,13 +7,13 @@ import About from './About';
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
-
-
   const handleItemClick = (item) => {
     setSelectedItem(item);
-  }
+  };
 
-
+  const handleHideClick = () => {
+    setSelectedItem(null);
+  };
 
   return (
     <div className="App">
@@ -25,9 +25,9 @@ function App() {
           <li onClick={() => handleItemClick('About')}>About</li>
         </ul>
         <div className="content-area">
-          {selectedItem === 'Home' && <Home />}
-          {selectedItem === 'Profile' && <Profile />}
-          {selectedItem === 'About' && <About />}
+          {selectedItem === 'Home' && <Home onHideClick={handleHideClick} />}
+          {selectedItem === 'Profile' && <Profile onHideClick={handleHideClick} />}
+          {selectedItem === 'About' && <About onHideClick={handleHideClick} />}
         </div>
       </header>
     </div>

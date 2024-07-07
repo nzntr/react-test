@@ -1,16 +1,24 @@
 import React from 'react';
 import './App.css';
 
-function Profile() {
+function Profile({ onHideClick }) {
+  const buttonStyle = {
+    backgroundColor: 'lightgreen',
+    color: 'white',
+    padding: '10px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer'
+  };
+
   return (
     <div className="profile-info">
       <h2>Profile</h2>
-      <p>This is the profile page.</p>
-      <p>This is the profile page.</p>
-      <p>This is the profile page.</p>
-      <p>This is the profile page.</p>
-      <p>This is the profile page.</p>
-      <p>This is the profile page.</p>
+      <p>Welcome to the profile page!</p>
+      <p>Welcome to the profile page!</p>
+      <p>Welcome to the profile page!</p>
+      <p>Welcome to the profile page!</p>
+      <button style={buttonStyle} onClick={onHideClick}>Hide</button>
     </div>
   );
 }
