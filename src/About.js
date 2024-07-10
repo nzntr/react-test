@@ -3,11 +3,11 @@ import './App.css';
 
 function About({ onHideClick }) {
   const buttonStyle = {
-    backgroundColor: 'lightcoral',
+    backgroundColor: 'orange',
     color: 'white',
     padding: '10px',
     border: 'none',
-    borderRadius: '5px',
+    borderRadius: '100px',
     cursor: 'pointer'
   };
 

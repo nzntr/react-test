@@ -3,7 +3,7 @@ import './App.css';
 
 function Home({ onHideClick }) {
   const buttonStyle = {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'green',
     color: 'white',
     padding: '10px',
     border: 'none',

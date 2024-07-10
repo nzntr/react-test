@@ -1,6 +1,42 @@
 .App {
+  background-color: #d4c0fa;
+  font-family: Arial, sans-serif;
   text-align: center;
-  font-size: 1.2em;
+  padding: 20px;
+}
+
+.attendance-section {
+  max-width: 600px;
+  padding: 20px;
+  margin: 10px auto;
+  border: 1px solid #a676ff;
+  border-radius: 10px;
+  background-color: #a872ff;
+  color: #000000;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.done-message {
+  max-width: 600px;
+  padding: 20px;
+  margin: 10px auto;
+  border: 1px solid #bd76ff;
+  border-radius: 10px;
+  background-color: #d49fff;
+  color: #000000;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+select, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+p {
+  font-size: 18px;
 }
 
 
@@ -20,10 +56,7 @@ button {
   cursor: pointer;
 }
 
-p {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-}
+
 
 li.striked-through {
   text-decoration: line-through;
@@ -99,3 +132,4 @@ li.striked-through {
   background-color: #ffe0b2;
   color: #ff9800;
 }
+

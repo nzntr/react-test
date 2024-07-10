@@ -3,7 +3,7 @@ import './App.css';
 
 function Profile({ onHideClick }) {
   const buttonStyle = {
-    backgroundColor: 'lightgreen',
+    backgroundColor: 'blue',
     color: 'white',
     padding: '10px',
     border: 'none',
