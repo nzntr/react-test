@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-function Home({ onHideClick }) {
+function Profile({ onHideClick }) {
   const buttonStyle = {
-    backgroundColor: 'green',
+    backgroundColor: 'darkblue ',
     color: 'white',
     padding: '10px',
     border: 'none',
@@ -12,12 +12,12 @@ function Home({ onHideClick }) {
   };
 
   return (
-    <div className="home-info">
-      <h2>Home</h2>
-      <p>Welcome to the home page!</p>
+    <div className="profile-info">
+      <h2>Profile</h2>
+      <p>Welcome to the profile page!</p>
       <button style={buttonStyle} onClick={onHideClick}>Hide</button>
     </div>
   );
 }
 
-export default Home;
+export default Profile;
