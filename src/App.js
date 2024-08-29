@@ -7,10 +7,12 @@ import Admin from './Admin';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
-  const [pages, setPages] = useState([{name: 'Home', details:''},      
-    {name: 'Profile', details:''}, 
-    {name: 'About', details:''}, 
-    {name: 'Admin', details:''}]);
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [pages, setPages] = useState([{title: 'Home', details:''},      
+    {title: 'Profile', details:''}, 
+    {title: 'About', details:''}, 
+    {title: 'Admin', details:''}]);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -21,7 +23,12 @@ function App() {
   };
 
   const addPage = (newPageName, newPageDetails) => {
-    setPages([...pages, {name: newPageName, details: newPageDetails}]);
+    setPages([...pages, {title: newPageName, details: newPageDetails}]);
+  };
+
+  const handleInputSubmit = (nameInput, addressInput) => {
+    setName(nameInput);
+    setAddress(addressInput);
   };
 
   return (
@@ -30,18 +37,18 @@ function App() {
       <header className="App-header">
         <ul className="menu-list">
           {pages.map((page) => (
-            <li key={page.name} onClick={() => handleItemClick(page.name)}>{page.name}</li>
+            <li key={page.title} onClick={() => handleItemClick(page.title)}>{page.title}</li>
           ))}
         </ul>
         <div className="content-area">
-          {selectedItem === 'Home' && <Home onHideClick={handleHideClick} />}
-          {selectedItem === 'Profile' && <Profile onHideClick={handleHideClick} />}
+          {selectedItem === 'Home' && <Home onHideClick={handleHideClick} onInputSubmit={handleInputSubmit}/>}
+          {selectedItem === 'Profile' && <Profile onHideClick={handleHideClick} name={name} address={address}/>}
           {selectedItem === 'About' && <About onHideClick={handleHideClick} />}
           {selectedItem === 'Admin' && <Admin onHideClick={handleHideClick} addPage={addPage} />}
-          {pages.map(page => page.name).includes(selectedItem) && !['Home', 'Profile', 'About', 'Admin'].includes(selectedItem) && (
+          {pages.map(page => page.title).includes(selectedItem) && !['Home', 'Profile', 'About', 'Admin'].includes(selectedItem) && (
             <div>
               <h2>{selectedItem}</h2>
-              <p>{pages.find(page => page.name === selectedItem)?.details}</p>
+              <p>{pages.find(page => page.title === selectedItem)?.details}</p>
               <button onClick={handleHideClick}>Hide</button>
             </div>
           )}
