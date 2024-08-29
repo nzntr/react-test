@@ -19,20 +19,12 @@ function Admin({ onHideClick, addPage }) {
     }
   };
 
-  const buttonStyle = {
-    backgroundColor: 'blue',
-    color: 'white',
-    padding: '10px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    marginTop: '10px'
-  };
+
 
   return (
     <div className="admin-info">
       <h2>Admin</h2>
-      <p>Welcome to the admin page!</p>
+      <p>Add new pages</p>
         <div className="home-info">
         <input
           type="text"
@@ -47,8 +39,8 @@ function Admin({ onHideClick, addPage }) {
           onChange={handleInputChangeDetails}
           placeholder="Add Details"
         /></div>
-        <button style={buttonStyle} onClick={handleAddPage}>Add New Page</button>
-      <button style={buttonStyle} onClick={onHideClick}>Hide</button>
+        <button onClick={handleAddPage}>Add New Page</button>
+      <button  onClick={onHideClick}>Hide</button>
     </div>
   );
 }

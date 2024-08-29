@@ -1,108 +1,149 @@
-.App {
-  background-color: #d4c0fa;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
-
-
-
-
-select, button {
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-p {
-  font-size: 18px;
-}
-
-
-.content-area {
-  margin-top: 20px;
-}
-
-input {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-button {
-  margin-left: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-
-
-
 
 
 .App-header {
-  background-color: #b275fd;
+  background: linear-gradient(135deg, #ffffffec, #91a9f7);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(254, 253, 255);
+  justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: calc(12px + 2vmin);
+  color: #333;
+  text-align: center;
 }
 
 .menu-list {
   list-style-type: none;
-  cursor: pointer;
   padding: 0;
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
 }
 
 .menu-list li {
-  display: inline;
-  margin: 0 10px;
-}
-
-.item-info {
-  max-width: 600px;
-  margin: 10px auto;
-  text-align: center;
-  padding: 15px;
-  border: 1px solid #3b2e75;
-  border-radius: 10px; 
-  background-color: #e5cfff;
-  box-sizing: border-box; 
+  cursor: pointer;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #5a45b4ec, #7642b9);
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 
-.home-info {
-  max-width: 600px;
-  padding: 20px;
-  margin: 10px auto;
-  text-align: center;
-  border: 1px solid #4caf50;
+
+.content-area {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
   border-radius: 10px;
-  background-color: #d0f0c0;
-  color: #4caf50;
-  box-sizing: border-box; 
-}
-.profile-info {
-  max-width: 600px;
   padding: 20px;
-  margin: 10px auto;
-  border: 1px solid #2196f3;
-  border-radius: 10px;
-  background-color: #bbdefb;
-  color: #2196f3;
-  text-align: center;
-  box-sizing: border-box; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.about-info {
-  max-width: 600px;
-  text-align: center;
-  box-sizing: border-box; 
-  padding: 20px;
-  border: 1px solid #ff9800;
-  border-radius: 10px;
-  background-color: #ffe0b2;
-  color: #ff9800;
+.home-info, .profile-info, .about-info, .admin-info {
+  text-align: left;
+}
+
+
+.home-info button {
+  background-color: rgb(49, 7, 83);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 500px;
+}
+
+.home-info button:hover {
+  background-color: rgb(106, 102, 167);
+}
+
+.home-info button:active {
+  transform: scale(0.98);
+}
+
+
+.profile-info button {
+  background-color: rgb(9, 56, 94);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-info button:hover {
+  background-color: rgb(79, 155, 158);
+}
+
+.profile-info button:active {
+  transform: scale(0.98);
+}
+
+
+.about-info button {
+  background-color: rgb(128, 25, 114);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.about-info button:hover {
+  background-color: rgb(205, 144, 218);
+}
+
+.about-info button:active {
+  transform: scale(0.98);
+}
+
+.admin-info button {
+  background-color: rgb(52, 32, 141);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 500px;
+}
+
+.admin-info button:hover {
+  background-color: rgb(157, 171, 255);
+}
+
+.admin-info button:active {
+  transform: scale(0.98);
+}
+
+
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 22px);
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3c0074;
+  box-shadow: 0 0 5px rgba(128, 101, 245, 0.5);
 }

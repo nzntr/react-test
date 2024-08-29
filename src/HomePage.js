@@ -19,20 +19,10 @@ function HomePage({ onHideClick, onInputSubmit }) {
     setAddress('');
   };
 
-  const buttonStyle = {
-    backgroundColor: 'darkgreen',
-    color: 'white',
-    padding: '10px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    marginTop: '10px'
-  };
 
   return (
     <div className="home-info">
-      <h2>Home</h2>
-      <p>Welcome to the home page!</p>
+      <h3>Welcome to the Home page!</h3>
       <input
         type="text"
         placeholder="Enter your name"
@@ -45,8 +35,8 @@ function HomePage({ onHideClick, onInputSubmit }) {
         value={address}
         onChange={handleAddressChange}
       />
-      <button style={buttonStyle} onClick={handleSubmit}>Submit</button>
-      <button style={buttonStyle} onClick={onHideClick}>Hide</button>
+      <button  onClick={handleSubmit}>Submit</button>
+      <button  onClick={onHideClick}>Hide</button>
     </div>
   );
 }

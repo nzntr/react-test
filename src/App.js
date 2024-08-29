@@ -33,13 +33,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello !!</h1>
       <header className="App-header">
         <ul className="menu-list">
           {pages.map((page) => (
             <li key={page.title} onClick={() => handleItemClick(page.title)}>{page.title}</li>
           ))}
         </ul>
+        {selectedItem && (
         <div className="content-area">
           {selectedItem === 'Home' && <Home onHideClick={handleHideClick} onInputSubmit={handleInputSubmit}/>}
           {selectedItem === 'Profile' && <Profile onHideClick={handleHideClick} name={name} address={address}/>}
@@ -53,6 +53,7 @@ function App() {
             </div>
           )}
         </div>
+        )}
       </header>
     </div>
   );
