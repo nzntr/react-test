@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AppContext } from './AppContext';
 import './App.css';
 
-function HomePage({ onHideClick, onInputSubmit }) {
+function HomePage() {
+  const { handleInputSubmit, handleHideClick } = useContext(AppContext);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
 
@@ -14,7 +16,7 @@ function HomePage({ onHideClick, onInputSubmit }) {
   };
 
   const handleSubmit = () => {
-    onInputSubmit(name, address);
+    handleInputSubmit(name, address);
     setName('');
     setAddress('');
   };
@@ -36,7 +38,7 @@ function HomePage({ onHideClick, onInputSubmit }) {
         onChange={handleAddressChange}
       />
       <button  onClick={handleSubmit}>Submit</button>
-      <button  onClick={onHideClick}>Hide</button>
+      <button  onClick={handleHideClick}>Hide</button>
     </div>
   );
 }

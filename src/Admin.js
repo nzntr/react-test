@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AppContext } from './AppContext';
+import './App.css';
 
-function Admin({ onHideClick, addPage }) {
+function Admin() {
+  const { addPage, handleHideClick } = useContext(AppContext);
   const [newPageName, setNewPageName] = useState('');
   const [newPageDetails, setNewPageDetails] = useState('');
 
@@ -25,7 +28,6 @@ function Admin({ onHideClick, addPage }) {
     <div className="admin-info">
       <h2>Admin</h2>
       <p>Add new pages</p>
-        <div className="home-info">
         <input
           type="text"
           value={newPageName}
@@ -38,9 +40,9 @@ function Admin({ onHideClick, addPage }) {
           value={newPageDetails}
           onChange={handleInputChangeDetails}
           placeholder="Add Details"
-        /></div>
+        />
         <button onClick={handleAddPage}>Add New Page</button>
-      <button  onClick={onHideClick}>Hide</button>
+      <button  onClick={handleHideClick}>Hide</button>
     </div>
   );
 }

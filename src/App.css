@@ -52,7 +52,7 @@ body {
 }
 
 .home-info, .profile-info, .about-info, .admin-info {
-  text-align: left;
+  text-align: center;
 }
 
 
@@ -64,7 +64,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 500px;
+  margin-right: 50px;
 }
 
 .home-info button:hover {
@@ -121,7 +121,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 500px;
+  margin-right: 50px;
 }
 
 .admin-info button:hover {
